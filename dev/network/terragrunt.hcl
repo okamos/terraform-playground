@@ -9,7 +9,8 @@ locals {
 }
 
 terraform {
-  source = "git@github.com:okamos/terraform-playground.git/modules/network"
+  # use relative path
+  source = "${dirname(find_in_parent_folders())}/modules/network"
 }
 
 inputs = {
@@ -19,4 +20,8 @@ inputs = {
   private_subnets  = ["10.199.129.0/24", "10.199.130.0/24", "10.199.131.0/24"]
   public_subnets   = ["10.199.1.0/24", "10.199.2.0/24", "10.199.3.0/24"]
   database_subnets = ["10.199.193.0/24", "10.199.194.0/24", "10.199.195.0/24"]
+
+  tags = {
+    Plus = "hoge"
+  }
 }

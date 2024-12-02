@@ -5,10 +5,12 @@ generate "provider" {
 provider "aws" {
   region = "${local.aws_region}"
 
-  default_tags = {
-    Project = "${local.tags.Project}"
-    Environment = "${local.tags.Environment}"
-    Owner = "${local.tags.Owner}"
+  default_tags {
+    tags = {
+      Project = "${local.tags.Project}"
+      Environment = "${local.tags.Environment}"
+      Owner = "${local.tags.Owner}"
+    }
   }
 }
 
@@ -16,10 +18,12 @@ provider "aws" {
   alias  = "virginia"
   region = "us-east-1"
 
-  default_tags = {
-    Project = "${local.tags.Project}"
-    Environment = "${local.tags.Environment}"
-    Owner = "${local.tags.Owner}"
+  default_tags {
+    tags = {
+      Project = "${local.tags.Project}"
+      Environment = "${local.tags.Environment}"
+      Owner = "${local.tags.Owner}"
+    }
   }
 }
 EOF

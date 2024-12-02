@@ -1,7 +1,7 @@
 locals {
   tags = {
     Project = "okamos-playground"
-    Environment = "dev"
+    Environment = "sdlc"
     Owner = "terraform"
   }
 }

@@ -6,7 +6,7 @@ variable "name" {
 variable "cidr" {
   description = "The CIDR block for the VPC"
   type        = string
-  defualt     = "10.0.0.0/16"
+  default     = "10.0.0.0/16"
 }
 
 variable "azs" {
@@ -49,4 +49,10 @@ variable "enable_dns_hostnames" {
   description = "A boolean to enable DNS hostnames"
   type        = bool
   default     = true
+}
+
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
 }
