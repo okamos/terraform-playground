@@ -1,0 +1,41 @@
+name: terragrunt-plan
+
+on:
+  push:
+
+env:
+  tf_version: 1.11.1
+  tg_version: 0.75.0
+
+jobs:
+  plan:
+    strategy:
+      matrix:
+        environment: [dev, stg]
+    runs-on: ubuntu-20.04
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: ap-northeast-1
+          role-to-assume: arn:aws:iam::535550704136:role/InfraForGitHubActions
+
+      - name: Check terragrunt HCL
+        uses: gruntwork-io/terragrunt-action@v2
+        with:
+          tf_version: ${{ env.tf_version }}
+          tg_version: ${{ env.tg_version }}
+          tg_dir: ${{ matrix.environment }}
+          tg_command: 'hclfmt --terragrunt-check --terragrunt-diff'
+
+      - name: Plan
+        uses: gruntwork-io/terragrunt-action@v2
+        with:
+          tf_version: ${{ env.tf_version }}
+          tg_version: ${{ env.tg_version }}
+          tg_dir: ${{ matrix.environment }}
+          tg_command: 'plan'
