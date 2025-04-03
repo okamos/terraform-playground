@@ -28,7 +28,7 @@ jobs:
           role-to-assume: arn:aws:iam::051564899648:role/OkamosPlayGroundForGitHub
 
       - run: |
-          /usr/local/bin >> $GITHUB_PATH
+          echo "/usr/local/bin" >> $GITHUB_PATH
 
       - name: Check terragrunt HCL
         uses: gruntwork-io/terragrunt-action@v2
