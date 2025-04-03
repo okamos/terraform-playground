@@ -38,7 +38,7 @@ jobs:
       - name: Plan
         uses: gruntwork-io/terragrunt-action@v2
         env:
-          PATH: /usr/local/bin:$PATH
+          PATH: /usr/local/bin:${{ env.PATH }}
         with:
           tf_version: ${{ env.tf_version }}
           tg_version: ${{ env.tg_version }}
