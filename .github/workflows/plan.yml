@@ -30,9 +30,9 @@ jobs:
       - run: |
           which aws
       - run: |
-          echo $GITHUB_PATH
+          echo $PATH
       - run: |
-          which aws >> $GITHUB_PATH
+          which aws >> $PATH
 
       - name: Check terragrunt HCL
         uses: gruntwork-io/terragrunt-action@v2
