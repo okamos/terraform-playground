@@ -38,7 +38,7 @@ jobs:
       - name: Plan
         uses: gruntwork-io/terragrunt-action@v2
         env:
-          PATH: /usr/local/bin:${{ env.PATH }}
+          INPUT_PRE_EXEC_0: 'curl -sLO https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip && unzip -q awscli-exe-linux-x86_64.zip && ./aws/install'
         with:
           tf_version: ${{ env.tf_version }}
           tg_version: ${{ env.tg_version }}
