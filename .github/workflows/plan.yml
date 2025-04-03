@@ -13,6 +13,7 @@ jobs:
     strategy:
       matrix:
         environment: [dev, stg]
+      fail-fast: false
     runs-on: ubuntu-20.04
     permissions:
       id-token: write
@@ -40,4 +41,4 @@ jobs:
           tf_version: ${{ env.tf_version }}
           tg_version: ${{ env.tg_version }}
           tg_dir: ${{ matrix.environment }}
-          tg_command: 'plan'
+          tg_command: 'run-all plan'
