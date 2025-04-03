@@ -17,7 +17,7 @@ terraform {
 }
 
 inputs = {
-  vpc_id = dependency.network.outputs.vpc_id
+  vpc_id          = dependency.network.outputs.vpc_id
   private_subnets = dependency.network.outputs.private_subnets
 
   tags = local.tags
