@@ -28,11 +28,11 @@ jobs:
           role-to-assume: arn:aws:iam::051564899648:role/OkamosPlayGroundForGitHub
 
       - run: |
-        which aws
+          which aws
       - run: |
-        echo $GITHUB_PATH
+          echo $GITHUB_PATH
       - run: |
-        which aws >> $GITHUB_PATH
+          which aws >> $GITHUB_PATH
 
       - name: Check terragrunt HCL
         uses: gruntwork-io/terragrunt-action@v2
